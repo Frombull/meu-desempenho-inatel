@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f2a55">
+<title>Meu Desempenho · App Inatel (protótipo)</title>
+<meta name="description" content="Protótipo da nova funcionalidade Meu Desempenho do App Inatel: simulador de notas e frequência. Projeto final de Interface Homem-Máquina.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="stage">
+
+  <!-- Painel lateral: só aparece em telas largas (desktop) -->
+  <aside class="side" aria-label="Painel do protótipo">
+    <p class="side-kicker">Projeto final · Interface Homem-Máquina</p>
+    <h1>Meu Desempenho</h1>
+    <p class="side-lead">Nova funcionalidade do App Inatel: simule a nota que ainda falta, acompanhe a frequência e salve sua meta.</p>
+
+    <section class="side-card">
+      <h2>Tamanho da tela</h2>
+      <div class="seg" id="devicePicker" role="radiogroup" aria-label="Tamanho da tela">
+        <button role="radio" aria-checked="false" data-w="360" data-h="740">360×740</button>
+        <button role="radio" aria-checked="true" data-w="390" data-h="844">390×844</button>
+        <button role="radio" aria-checked="false" data-w="430" data-h="932">430×932</button>
+      </div>
+    </section>
+
+    <section class="side-card">
+      <h2>Roteiro de teste <span id="roteiroCount" class="roteiro-count">0/8</span></h2>
+      <ol class="roteiro" id="roteiro">
+        <li data-ev="menu"><span class="rc"></span><span>Toque no menu <b>☰</b></span></li>
+        <li data-ev="desempenho"><span class="rc"></span><span>Abra <b>Meu Desempenho</b></span></li>
+        <li data-ev="disciplina"><span class="rc"></span><span>Escolha <b>M210 · Otimização I</b></span></li>
+        <li data-ev="slider"><span class="rc"></span><span>Arraste a <b>nota simulada</b> da NP2</span></li>
+        <li data-ev="metaImpossivel"><span class="rc"></span><span>Mude a meta para <b>90</b> e veja o alerta</span></li>
+        <li data-ev="ajustar"><span class="rc"></span><span>Toque em <b>Ajustar meta</b></span></li>
+        <li data-ev="faltas"><span class="rc"></span><span>Simule <b>faltar</b> mais aulas</span></li>
+        <li data-ev="salvar"><span class="rc"></span><span>Toque em <b>Salvar meta</b></span></li>
+      </ol>
+      <p class="side-note">Atalho: no menu <b>Notas</b>, o botão <b>simular</b> abre direto o simulador.</p>
+      <button class="side-btn" id="btnReset">Reiniciar protótipo</button>
+    </section>
+
+    <p class="side-foot">Marco Di Toro · GES · 150<br>Prof. Raphael Pereira · Inatel</p>
+  </aside>
+
+  <!-- Celular -->
+  <div class="device" id="device">
+    <div class="statusbar" aria-hidden="true"><span id="clock">06:11</span><span>▂▄▆ ▭</span></div>
+
+    <div class="app" id="app">
+      <header class="appbar" id="appbar">
+        <button class="ab-btn" id="abLeft" aria-label="Abrir menu"></button>
+        <h2 class="ab-title" id="abTitle">Avisos</h2>
+        <button class="ab-btn" id="abRight" aria-label="Buscar"></button>
+      </header>
+
+      <main class="view" id="view" tabindex="-1"></main>
+
+      <!-- Menu lateral -->
+      <div class="scrim" id="scrim"></div>
+      <nav class="drawer" id="drawer" aria-label="Menu principal" aria-hidden="true"></nav>
+
+      <!-- Modal -->
+      <div class="modal-wrap" id="modalWrap" hidden>
+        <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"></div>
+      </div>
+
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+
+</div>
+
+<script src="vendor/chart.umd.min.js"></script>
+<script src="js/util.js"></script>
+<script src="js/model.js"></script>
+<script src="js/data.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/screens.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
